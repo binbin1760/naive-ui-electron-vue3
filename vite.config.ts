@@ -5,6 +5,9 @@ import render from "vite-plugin-electron-renderer";
 import AutoImport from "unplugin-auto-import/vite";
 import Conpoments from "unplugin-vue-components/vite";
 import { NaiveUiResolver } from "unplugin-vue-components/resolvers";
+
+import { fileURLToPath } from "url";
+
 export default defineConfig({
   plugins: [
     vue(),
@@ -34,5 +37,10 @@ export default defineConfig({
   },
   server: {
     port: 8484,
+  },
+  resolve: {
+    alias: {
+      "@": fileURLToPath(new URL("./src", import.meta.url)),
+    },
   },
 });

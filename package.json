@@ -9,12 +9,15 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "vue": "^3.3.8"
+    "pinia": "^2.1.7",
+    "vue": "^3.4.21",
+    "vue-router": "^4.3.0"
   },
   "devDependencies": {
+    "@vicons/ionicons5": "^0.12.0",
     "@vitejs/plugin-vue": "^4.5.0",
     "electron": "^28.0.0",
-    "naive-ui": "^2.35.0",
+    "naive-ui": "^2.38.1",
     "tree-kill": "^1.2.2",
     "typescript": "^5.2.2",
     "ui": "^0.2.4",

@@ -1,10 +1,13 @@
 <template>
-  <div>
-    <n-button type="info">测试naive ui</n-button>
-  </div>
+  <AppProvider>
+    <keep-alive>
+      <router-view></router-view>
+    </keep-alive>
+  </AppProvider>
 </template>
 
 <script setup lang="ts">
+import { AppProvider } from "./components";
 </script>
 
 <style scoped></style>

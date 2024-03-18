@@ -1,12 +1,12 @@
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
-import electron from "vite-plugin-electron";
-import render from "vite-plugin-electron-renderer";
 import AutoImport from "unplugin-auto-import/vite";
 import Conpoments from "unplugin-vue-components/vite";
 import { NaiveUiResolver } from "unplugin-vue-components/resolvers";
-
 import { fileURLToPath } from "url";
+import { devPlugin, getReplacer } from "./plugins/devPlugin"
+import optimizer from "vite-plugin-optimizer";
+import { buildPlugin } from './plugins/buildPlugin'
 
 export default defineConfig({
   plugins: [
@@ -26,17 +26,13 @@ export default defineConfig({
       dirs: ["src/components"],
       dts: "src/dts/components.d.ts",
     }),
-    electron({
-      entry: "electron/index.ts",
-    }),
-    render(),
+    devPlugin(),
+    optimizer(getReplacer())
   ],
-  base: "./",
   build: {
-    outDir: "dist",
-  },
-  server: {
-    port: 8484,
+    rollupOptions: {
+      plugins: [buildPlugin()]
+    }
   },
   resolve: {
     alias: {

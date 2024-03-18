@@ -1,16 +1,19 @@
 <template>
   <div class="home">
     <div class="tips">欢迎使用</div>
-    <div @click="createProject" class="create-project">创建项目/导入项目</div>
+    <div @click="createProject" class="create-project">创建图片</div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { useRouter } from "vue-router";
-const router = useRouter();
+import { ipcRenderer } from "electron";
 function createProject() {
-  router.push("/work");
+  ipcRenderer.send("message");
 }
+
+ipcRenderer.on("message1", (e, msg) => {
+  console.log(msg);
+});
 </script>
 
 <style scoped>

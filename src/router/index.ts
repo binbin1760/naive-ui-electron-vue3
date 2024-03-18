@@ -12,14 +12,14 @@ interface CustomRouterOptions extends RouterOptions {
     constantRoute?: RouteRecordRaw[];
 }
 const constantRoutes: Array<RouteRecordRaw> = [
-    {
-        path: "/home",
-        name: 'home-page',
-        meta: {
-            name: '主页'
-        },
-        component: () => import('@/views/home/index.vue')
-    },
+    // {
+    //     path: "/home",
+    //     name: 'home-page',
+    //     meta: {
+    //         name: '主页'
+    //     },
+    //     component: () => import('@/views/home/index.vue')
+    // },
     {
         path: '/work',
         name: 'work-page',
@@ -33,7 +33,7 @@ const constantRoutes: Array<RouteRecordRaw> = [
         meta: {
             name: '重定向中'
         },
-        redirect: '/home'
+        redirect: '/work'
     }
 ]
 

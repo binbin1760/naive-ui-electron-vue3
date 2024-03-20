@@ -1,6 +1,6 @@
 {
     "tabWidth":4,
-    "printWidth":70,
+    "printWidth":75,
     "semi":true,
     "endOfLine":"lf"
 }

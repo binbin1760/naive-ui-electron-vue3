@@ -35,12 +35,10 @@ ipcRenderer.on("send-imgurl", (event, msg) => {
     if (images.value.length === 0) {
         images.value = msg;
     } else {
-        console.log(msg);
         for (let i = 0; i < msg.length; i++) {
             if (!images.value.includes(msg[i])) {
                 images.value.push(msg[i]);
             }
-            console.log(i);
         }
     }
 });

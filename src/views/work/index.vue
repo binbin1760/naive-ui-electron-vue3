@@ -4,37 +4,33 @@
             <ImageList />
         </div>
         <div class="middle">
-            <div
-                class="picture"
-                @drop="dropImage"
-                @dragover="imgOver"
-            ></div>
+            <div class="picture">
+                <CanvasBox />
+            </div>
             <div class="tool">工具栏</div>
         </div>
-        <div class="right">工程信息预览</div>
+        <div class="right">工具信息栏</div>
     </div>
 </template>
 
 <script setup lang="ts">
-import { ImageList } from "./components";
-
-function dropImage(event: any) {
-    const url = event.dataTransfer.getData("imgUrl");
-}
-
-function imgOver(e: any) {
-    e.preventDefault();
-}
+import { ImageList, CanvasBox } from "./components";
 </script>
 
 <style scoped>
 .work-page {
     height: 100vh;
     display: flex;
+    border-top: 1px solid #202121;
+    box-sizing: border-box;
+    overflow: scroll;
 }
-
+.work-page::-webkit-scrollbar {
+    display: none;
+}
 .left {
     width: 166px;
+    border-right: 1px solid #202121;
 }
 
 .middle {
@@ -45,16 +41,21 @@ function imgOver(e: any) {
 
 .picture {
     flex: 1;
-    background: red;
+    min-height: 0;
+    padding: 8px;
+    background: #525457;
 }
 
 .tool {
     height: 200px;
-    background: #cccccc;
+    background: #a6a9ad;
+    border-top: 1px solid #202121;
+    flex-shrink: 0;
 }
 
 .right {
     width: 200px;
-    background: aqua;
+    border-left: 1px solid #202121;
+    padding: 8px;
 }
 </style>
